@@ -9,7 +9,11 @@ From the above website, We need to download:
 ```ISIC2018_Task3_Test_GroundTruth.tab``` and 	```ISIC2018_Task3_Test_Images.zip```
 
 ## Conda Environment Setup:
-You can use ```environment.yaml``` to recreate my configured environment with:
+You can use ```environment.yaml``` to recreate my configured environment with (in your Anaconda Prompt):
 ```
 conda env create -f environment.yaml
+```
+After building up the new environment, activate it by:
+```
+conda activate DL_image # DL_image is the env name
 ```
