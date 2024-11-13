@@ -17,3 +17,5 @@ After building up the new environment, activate it by:
 ```
 conda activate DL_image # DL_image is the env name
 ```
+## Reference:
+https://github.com/Woodman718/FixCaps
