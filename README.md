@@ -53,14 +53,17 @@ scp path/to/local/file username@ad3.ucdavis.edu@msbc.ucdavis.edu:path/to/cluster
 From the above website, We need to download: 	
 ```ISIC2018_Task3_Test_GroundTruth.tab``` and 	```ISIC2018_Task3_Test_Images.zip```
 
-## Conda Environment Setup:
-You can use ```environment.yaml``` to recreate my configured environment with (in your Anaconda Prompt):
+## Conda Environment on your PC Setup:
+You can use ```local_cpu_env.yml``` to re-create my configured local environment with (in your Anaconda Prompt):
 ```
-conda env create -f environment.yaml
+conda env create -f local_cpu_env.yml
 ```
 After building up the new environment, activate it by:
 ```
 conda activate DL_image # DL_image is the env name
 ```
+## Conda environment on the HPC Cluster  
+To be shared. Stay tuned.
+
 ## Reference:
 https://github.com/Woodman718/FixCaps
