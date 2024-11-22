@@ -80,6 +80,7 @@ conda activate DL_image # DL_image is the env name
 conda create --name my_pytorch_gpu --clone /share/apps/conda/envs/pytorch
 ``` 
 The new env will be stored in your home dir in a file named `mycondaenvs`.
+
 2. **pip install `torchvision` of version 0.17.1** To avoid further compatibility problem, first check versions of packages that `torchvision` relies on. The python version (which should be 3.11.2). Then check the version of CUDA that PyTorch was built with (which should be 12.1). Then according to these version info and [Pytorch Compatibility Table](https://pytorch.org/get-started/previous-versions/), pip install `torchvision` of version 0.17.1 for our image classification model-training: 
 ```
 pip install torchvision==0.17.1
