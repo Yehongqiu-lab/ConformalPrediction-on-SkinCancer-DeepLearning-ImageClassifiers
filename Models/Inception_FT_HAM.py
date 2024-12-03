@@ -295,7 +295,7 @@ save_PATH = f'./tmp/{img_title}/{suf}/best_val_{img_title}_{suf}.pth'
 last_path = f'./tmp/{img_title}/{suf}/last_train_{img_title}_{suf}.pth'
 print(save_PATH)
 
-num_epochs = 2
+num_epochs = 20
 
 criterion = nn.CrossEntropyLoss()
 from transformers import get_cosine_schedule_with_warmup
@@ -314,7 +314,7 @@ print('Finished Training')
 
 show.conclusion(opt='val',img_title=img_title)
 
-# network.load_state_dict(torch.load(save_PATH))
+network.load_state_dict(torch.load(save_PATH))
 
 for k in range(22,33):
     T_size = k
@@ -333,35 +333,7 @@ for k in range(22,33):
             elif dict_batch.get(k) is None or dict_batch[k] < test_acc:
                     dict_batch[k] = test_acc                 
 
-# show.conclusion(img_title=img_title) 
-# print(sorted(dict_imgSize.items(), key=lambda x: x[1] ,reverse=True)[0:9])
-# print(sorted(dict_batch.items(), key=lambda x: x[1], reverse=True)[0:9])
+show.conclusion(img_title=img_title) 
+print(sorted(dict_imgSize.items(), key=lambda x: x[1] ,reverse=True)[0:9])
+print(sorted(dict_batch.items(), key=lambda x: x[1], reverse=True)[0:9])
 
-# draw_size_acc(dict_imgSize,custom_path='./tmp',img_title=img_title,suf=suf)
-
-# print(metrics_scores(test_evl_result,n_classes,cla_dict))
-
-# #save
-# s0 = np.array(train_acc_list)
-# np.save(f'./tmp/{img_title}/{suf}/{img_title}_train_acc_{suf}.npy', s0)
-# s1 = np.array(train_loss_list)
-# np.save(f'./tmp/{img_title}/{suf}/{img_title}_train_loss_{suf}.npy', s1)
-# s2 = np.array(test_acc_list)
-# np.save(f'./tmp/{img_title}/{suf}/{img_title}_test_acc_{suf}.npy', s2)
-# s3 = np.array(val_acc_list)
-# np.save(f'./tmp/{img_title}/{suf}/{img_title}_val_acc_{suf}.npy', s2)
-# s4 = np.array(dict_batch)
-# np.save(f'./tmp/{img_title}/{suf}/{img_title}_dict_batch_{suf}.npy', s2)
-
-# show.test(write=True,custom_path='./tmp',img_title=img_title,suf=suf)
-
-# confusion_matrix(test_evl_result,n_classes,cla_dict,test_dataset,img_title=img_title,suf=suf)
-
-# plt.clf()#clear photo
-# show.train(write=True,custom_path='./tmp',img_title=img_title,suf=suf)
-
-# show.train(opt='Acc',write=True,custom_path='./tmp',img_title=img_title,suf=suf)
-
-# show.val(write=True,custom_path='./tmp',img_title=img_title,suf=suf)
-
-# confusion_matrix(val_evl_result,n_classes,cla_dict,test_dataset,img_title=img_title,suf=suf)
