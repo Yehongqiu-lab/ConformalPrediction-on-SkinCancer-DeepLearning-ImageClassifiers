@@ -91,8 +91,6 @@ pip install future thop torchsummary prettytable seaborn jupyter
 ```
 We are all set!
 
-### Conda env for data augmentation (mainly depend on `tensorflow`)
-To be shared. Stay tuned.
-
 ## Reference:
 https://github.com/Woodman718/FixCaps
+https://github.com/aangelopoulos/conformal-prediction
