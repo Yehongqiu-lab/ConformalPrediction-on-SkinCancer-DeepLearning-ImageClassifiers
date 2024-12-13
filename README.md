@@ -91,7 +91,7 @@ pip install future thop torchsummary prettytable seaborn jupyter
 ```
 We are all set!
 
-## Reference:
+## Reference (only for codes, a detailed list of all references is within the final paper):
 https://github.com/Woodman718/FixCaps
 
 https://github.com/aangelopoulos/conformal-prediction
