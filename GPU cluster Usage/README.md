@@ -61,6 +61,11 @@ scp path/to/local/file username@ad3.ucdavis.edu@msbc.ucdavis.edu:path/to/cluster
 From the above website, We need to download: 	
 ```ISIC2018_Task3_Test_GroundTruth.tab``` and 	```ISIC2018_Task3_Test_Images.zip```
 
+### A small dataset used for the validation dataset in conformal prediction (with ~200 images): https://challenge.isic-archive.com/data/#2018
+
+From the above website, We need to download: 	
+```Validation Data``` and 	```Validation GroundTruth```
+
 ## Conda Environment on your PC Setup:
 You can use ```local_cpu_env.yml``` to re-create my configured local environment with (in your Anaconda Prompt):
 ```
@@ -70,6 +75,8 @@ After building up the new environment, activate it by:
 ```
 conda activate DL_image # DL_image is the env name
 ```
+Plus we also use another env including ```sklearn``` to perform conformal predictions.
+
 ## Conda environment on the HPC Cluster  
 ### Conda env for training DL models
 1. First clone the pre-existed ```pytorch``` conda environment on MSBC, and name it `my_pytorch_gpu`. Use this env because it has a pre-configured pytorch run on gpu and also has pandas, numpy, matplotlib...:
