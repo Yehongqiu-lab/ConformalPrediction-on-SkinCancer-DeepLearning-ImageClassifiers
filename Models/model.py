@@ -1,6 +1,7 @@
 import torch
 import time
 import torch.nn as nn
+from torchvision import models
 import torch.optim as optim
 from torch.autograd import Variable
 import torch.nn.functional as F
@@ -8,6 +9,22 @@ import torch.nn.functional as F
 loc_time = time.strftime("%H%M%S", time.localtime()) 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 ratio = 8
+
+class LogitRegression(nn.Module):
+    def __init__(self, n_channels=3, img_size=299, num_classes=7):
+        super().__init__()
+        self.n_channels = n_channels
+        self.img_size = img_size
+        self.num_classes = num_classes
+
+        self.fc_layer = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(n_channels * self.img_size * self.img_size, num_classes)
+        )
+    def forward(self, x):
+        # Forward pass with softmax activation for multi-class classification
+        return F.log_softmax(self.fc_layer(x), dim=1)
+    
 
 class FixCapsNet(nn.Module):
     def __init__(self,conv_inputs,conv_outputs,
@@ -273,7 +290,7 @@ def make_features(cfg: list,f_c,out_c=None,g=1,step=2):
         elif v == "C":
             layers += [nn.Conv2d(f_channels,f_channels,3,stride=step)]
         else:
-            layers += [nn.Conv2d(f_channels, v, 18,stride=step,groups=g)]
+            layers += [nn.Conv2d(f_channels, v, 29,stride=step,groups=g)]
             f_channels = v
     return nn.Sequential(*layers)
 
