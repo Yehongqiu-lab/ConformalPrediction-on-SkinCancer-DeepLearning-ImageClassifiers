@@ -1,6 +1,3 @@
-# STA-221-Project
-Deep Learning Image Classification
-
 ## UC Davis MSBC cluster usage:
 ### Useful website: https://msbc-cluster.ucdavis.edu/howto
 
@@ -90,8 +87,3 @@ pip install torchvision==0.17.1
 pip install future thop torchsummary prettytable seaborn jupyter
 ```
 We are all set!
-
-## Reference (only for codes, a detailed list of all references is within the final paper):
-https://github.com/Woodman718/FixCaps
-
-https://github.com/aangelopoulos/conformal-prediction
