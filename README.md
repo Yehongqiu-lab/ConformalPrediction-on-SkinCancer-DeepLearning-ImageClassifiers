@@ -13,3 +13,9 @@ The conclusion, however trivial, is not counter-intuitive and once again proves 
 What we learned from the experience is that we got a better understanding of the advantages and pitfalls of Conformal Prediction.
 What’s more, we acquired the engineering skills of constructing medium-scale ML model (1-10 M parameters) pipelines 
 and using the new GPU cluster “MSBC” in the UC Davis Statistics department. 
+
+We referenced:
+1. https://github.com/Woodman718/FixCaps
+2. https://github.com/aangelopoulos/conformal-prediction
+to produce our codes. Thanks a lot!
+
