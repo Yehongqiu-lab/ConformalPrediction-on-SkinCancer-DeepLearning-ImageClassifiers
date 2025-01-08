@@ -29,8 +29,10 @@ from utils import confusion_matrix,metrics_scores,pff
 from model import FixCapsNet
 
 # Settings.
-cpus_per_gpu = 4
+cpus_per_gpu = 8
 num_epochs = 120
+no_train = True
+last_suf = "1222_140218"
 torch.cuda.empty_cache()
 
 sys.path.append(os.pardir)
@@ -153,7 +155,7 @@ network = FixCapsNet(conv_inputs=n_channels,
                      init_weights=True,
                      mode=mode)
 network = network.to(device)
-summary(network,(n_channels,img_size,img_size))
+network.Convolution
 
 def train(epoch):
     network.train()
@@ -302,7 +304,7 @@ save_PATH = f'./tmp/{img_title}/{suf}/best_val_{img_title}_{suf}.pth'
 last_path = f'./tmp/{img_title}/{suf}/last_train_{img_title}_{suf}.pth'
 print(save_PATH)
 
-learning_rate = 0.123
+learning_rate = 0.120
 optimizer = optim.Adam(network.parameters(), lr=learning_rate)
 scheduler = lr_scheduler.CosineAnnealingLR(optimizer, 5, eta_min=1e-8, last_epoch=-1)
 
@@ -323,6 +325,7 @@ if os.path.exists(checkpoint_path):
     print(f"Resuming training from epoch {start_epoch}")
 
 if start_epoch < (num_epochs + 1):
+    no_train = False
     for epoch in range(start_epoch, num_epochs + 1): 
         train(epoch)
         test('val')
@@ -341,7 +344,13 @@ print('Finished Training')
 if start_epoch < (num_epochs + 1):
     show.conclusion(opt='val',img_title=img_title)
 
-for k in range(22,29):#(22,29)
+if no_train == True:
+    last_save_PATH =  f'./tmp/{img_title}/{last_suf}/best_val_{img_title}_{last_suf}.pth'
+else:
+    last_save_PATH = save_PATH
+network.load_state_dict(torch.load(last_save_PATH))
+
+for k in range(22,33):#(22,29)
     T_size = k
     print(f"T_size:{k}")
     
@@ -356,10 +365,10 @@ for k in range(22,29):#(22,29)
     s10 = np.array(dict_imgSize)
     np.save(f'./tmp/{img_title}/{suf}/{img_title}_dict_imgSize_{suf}.npy', s10)
     
-    for i in range(300,320):#(300,320)
+    for i in range(300,325):#(300,320)
         get_data(i)
         print(f"size:{i}")
-        for j in range(3):#3
+        for j in range(5):#3
             test()
             if dict_imgSize.get(i) is None or dict_imgSize[i] < test_acc:
                 dict_imgSize[i] = test_acc
