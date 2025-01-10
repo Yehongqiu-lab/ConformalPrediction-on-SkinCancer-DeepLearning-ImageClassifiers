@@ -22,7 +22,7 @@ The dataset is an unbalanced dataset in which the number of images under each cl
 <p align="center">
   <img src="figs/dataset_ub.png" alt="Unbalanced data in the HAM10000 Dataset" width="400"/>
 </p>
-
+## Main Results
 After training three Machine Learning models (logit regression, Inception V3, FixCaps) on the dataset, we used an additional dataset of 1151 images unseen during training to test the models' capability. 
 
  <p align="center">
