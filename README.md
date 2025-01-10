@@ -1,21 +1,42 @@
 # A Brief Introduction to the project:
-In the fall of 2024, We (ChiChun Chen, Savali Sandip Deshmukh, Shivani Sanjay Suryawanshi, Sriharshini D, and Yehong Qiu) did a deep-learning image classification project for STA221. The course teaches students about the maths of Machine Learning models and students are required to implement the methods taught or beyond in class and develop their engineering skills in the process. 
+In the fall of 2024, our team—**ChiChun Chen, Savali Sandip Deshmukh, Shivani Sanjay Suryawanshi, Sriharshini D, and Yehong Qiu**—undertook a deep learning image classification project as part of STA221. This course focuses on the mathematical foundations of machine learning models and encourages students to implement these methods—or explore beyond the classroom teachings—while honing their engineering skills.
 
-The problem we were interested in was to assess the statistical reliability of different ML models based on a common rubric. 
+Our project aimed to evaluate the statistical reliability of various machine learning models using a standardized rubric, providing a robust comparison framework. 
+## Dataset
+The dataset used for this project was HAM10000, a dermoscopy image dataset consisting of 10,015 skin cancer images. The objective of the machine learning model was to classify each image into one of seven skin tumor classes:
 
-The dataset used was HAM 10000, a skin cancer dermoscopy image dataset containing 10015 images. The goal for machine learning training is to classify the skin tumor within each image to 1 out of the 7 classes: Actinic keratoses and intraepithelial carcinoma (akiec), Basal cell carcinoma (bcc), Benign keratosis-like lesions (bkl), Dermatofibroma (df), Melanoma (mel), Melanocytic nevi (nv), and Vascular lesions (vasc). 
-![dataset glimpse](figs/dataset.png "A glimpse of the HAM10000 Dataset")
-The dataset is an unbalanced dataset in which the number of images under each class varies greatly. 
-![dataset detail](figs/dataset_ub.png "Unbalanced data in the HAM10000 Dataset")
-After training three Machine Learning models (logit regression, Inception V3, FixCaps) on the dataset, we used an additional dataset of 1151 images unseen during training to validate the models' capability. 
- ![dataset detail](figs/ova.png "Overall accuracy")
- <p align="center">
-  <img src="figs/logit.png" alt="logit regression" width="200"/>
-  <img src="figs/iv3.png" alt="inception v3" width="200"/>
-  <img src="figs/fixcaps.png" alt="fixcaps" width="200"/>
+Actinic keratoses and intraepithelial carcinoma (akiec)
+Basal cell carcinoma (bcc)
+Benign keratosis-like lesions (bkl)
+Dermatofibroma (df)
+Melanoma (mel)
+Melanocytic nevi (nv)
+Vascular lesions (vasc)
+
+<p align="center">
+  <img src="figs/dataset.png" alt="A glimpse of the HAM10000 Dataset" width="400"/>
 </p>
 
-To assess the statistical reliability of the models, we applied a distribution-free statistical inference tool called Conformal Prediction on the three ML models.
+The dataset is an unbalanced dataset in which the number of images under each class varies greatly. 
+
+<p align="center">
+  <img src="figs/dataset_ub.png" alt="Unbalanced data in the HAM10000 Dataset" width="400"/>
+</p>
+
+After training three Machine Learning models (logit regression, Inception V3, FixCaps) on the dataset, we used an additional dataset of 1151 images unseen during training to test the models' capability. 
+
+ <p align="center">
+  <img src="figs/ova.png" alt="Overall accuracy" width="400"/>
+</p>
+ 
+ <p align="center">
+  <img src="figs/logit.png" alt="logit regression" width="300"/>
+  <img src="figs/iv3.png" alt="inception v3" width="300"/>
+  <img src="figs/fixcaps.png" alt="fixcaps" width="300"/>
+</p>
+
+To assess the statistical reliability of the models, we applied a distribution-free statistical inference tool called Conformal Prediction on the three ML models. Specifically we used Randomized Adaptive Prediction Set method (RAPS) to generate conformal scores.
+
 <p align="center">
   <img src="figs/sps_logit.png" alt="logit regression" width="200"/>
   <img src="figs/sps_iv3.png" alt="inception v3" width="200"/>
@@ -26,19 +47,21 @@ To assess the statistical reliability of the models, we applied a distribution-f
   <img src="figs/ec.png" alt="empirical coverage" width="300"/>
   <img src="figs/sps.png" alt="prediction set size" width="300"/>
 </p>
+
 <p align="center">
   <img src="figs/csc.png" alt="class-stratified coverage" width="300"/>
   <img src="figs/ssc.png" alt="size-stratified coverage" width="300"/>
 </p>
 
-The project conclusion is, under the same confidence level, larger deep-learning models, of which the Conformal Prediction procedures produce small prediction sets on average, outperform the simple multivariate classifier: the logit regression model, which is just a single layer of Neural Network. 
-The conclusion, however trivial, is not counter-intuitive and once again proves the power of deep learning models. 
-
-What we learned from the experience is that we got a better understanding of the advantages and pitfalls of Conformal Prediction.
-What’s more, we acquired the engineering skills of constructing medium-scale ML model (1-10 M parameters) pipelines 
-and using the new GPU cluster “MSBC” in the UC Davis Statistics department. 
-
-We thank Prof. Ricardo Masini for his enlightful lectures and advice on this project, and Michael Berger, the Head of AI insurance at Munich Re, for the seminar talk in which he shared his industry-wise pioneering team  use Conformal Prediction to design insurance plans for AI companies selling black-box-like AI tools.
+## Main Conclusions:
+Under the same confidence level (set at 0.9), larger deep learning models outperform simpler multivariate classifiers, which is logistic regression (a single-layer neural network). The Conformal Prediction procedures for larger models produce smaller average prediction sets, demonstrating their superiority in terms of prediction accuracy. However, the class-stratified coverage boxplot reveals a critical trade-off: larger deep learning models tend to sacrifice underrepresented groups to improve prediction accuracy for the majority groups. Specifically, they overcover more common cancer types while undercovering rare cancer types, leading to diagnostic disparities. While these findings may seem intuitive, they underscore the dual-edged power of black-box-like deep learning models.
+## Key Takeaways:
+This project provided valuable insights into the strengths and limitations of deep learning models through the lens of Conformal Prediction. Additionally, we gained hands-on experience in:
+1. Understanding and leveraging Conformal Prediction as a tool for model evaluation.
+2. Building and deploying medium-scale machine learning pipelines (1–10M parameters).
+3. Utilizing the new GPU cluster "MSBC" in the UC Davis Statistics Department for computational tasks.
+## Acknowledgments:
+We extend our gratitude to Prof. Ricardo Masini for his insightful lectures and guidance throughout this project. We also thank Michael Berger, Head of AI Insurance at Munich Re, for his inspiring seminar. His discussion on applying Conformal Prediction in designing insurance plans for companies selling black-box AI tools provided valuable industry context.
 
 Becides, we referenced:
 1. https://github.com/Woodman718/FixCaps
