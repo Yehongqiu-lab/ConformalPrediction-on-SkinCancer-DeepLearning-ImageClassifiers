@@ -29,6 +29,8 @@ After training three Machine Learning models (logit regression, Inception V3, Fi
  <p align="center">
   <img src="figs/ova.png" alt="Overall accuracy" width="400"/>
 </p>
+
+From left to right, up to down, the three tables correspond to the precision, recall and F1 scores within each class of the three models: Logit Regression, Inception V3, and FixCaps, respectively.
  
  <p align="center">
   <img src="figs/logit.png" alt="logit regression" width="300"/>
