@@ -1,5 +1,5 @@
 # A Brief Introduction to the project:
-In the fall of 2024, our team—**ChiChun Chen, Savali Sandip Deshmukh, Shivani Sanjay Suryawanshi, Sriharshini D, and Yehong Qiu**—undertook a deep learning image classification project as part of STA221. This course focuses on the mathematical foundations of machine learning models and encourages students to implement these methods—or explore beyond the classroom teachings—while honing their engineering skills.
+In the fall of 2024, Yehong Qiu led the team in undertaking a deep learning image classification project as part of STA221. This course focuses on the mathematical foundations of machine learning models and encourages students to implement these methods—or explore beyond the classroom teachings—while honing their engineering skills.
 
 Our project aimed to evaluate the statistical reliability of various machine learning models using a standardized rubric, providing a robust comparison framework. 
 ## Dataset
@@ -64,7 +64,8 @@ This project provided valuable insights into the strengths and limitations of de
 2. Building and deploying medium-scale machine learning pipelines (1–10M parameters).
 3. Utilizing the new GPU cluster "MSBC" in the UC Davis Statistics Department for computational tasks.
 ## Acknowledgments:
-We extend our gratitude to Prof. Ricardo Masini for his insightful lectures and guidance throughout this project. We also thank Michael Berger, Head of AI Insurance at Munich Re, for his inspiring seminar. His discussion on applying Conformal Prediction in designing insurance plans for companies selling black-box AI tools provided valuable industry context.
+The team member for the project are: **Yehong Qiu, ChiChun Chen, Savali Sandip Deshmukh, Shivani Sanjay Suryawanshi, and Sriharshini D**
+We extend our gratitude to Prof. Ricardo Masini for his insightful lectures and guidance throughout this project. We also thank Michael Berger, Head of AI Insurance at Munich Re, for his inspiring seminar. His discussion on applying Conformal Prediction in designing insurance plans for companies selling black-box AI tools provided valuable industry context. 
 
 Becides, we referenced:
 1. https://github.com/Woodman718/FixCaps
