@@ -1,7 +1,8 @@
 # A Brief Introduction to the project:
 In the fall of 2024, Yehong Qiu led the team in undertaking a deep learning image classification project as part of STA221. This course focuses on the mathematical foundations of machine learning models and encourages students to implement these methods—or explore beyond the classroom teachings—while honing their engineering skills.
 
-Our project aimed to evaluate the statistical reliability of various machine learning models using a standardized rubric, providing a robust comparison framework. 
+As machine learning models keep scaling up, they demonstrate surprising capabilities in fitting large amounts of data quite well. However, their statistical reliability remains unchecked. The classic rubric for checking overfitting is not adequate, and a new framework called **Conformal Prediciton** is proposed in recent years to solve this problem. Our project aimed to evaluate the statistical reliability of various machine learning models using Conformal Prediction, providing a robust comparison framework. 
+
 ## Dataset
 The dataset used for this project was HAM10000, a dermoscopy image dataset consisting of 10,015 skin cancer images. The objective of the machine learning model was to classify each image into one of seven skin tumor classes:
 
